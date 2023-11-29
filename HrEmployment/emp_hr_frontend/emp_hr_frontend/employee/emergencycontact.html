@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../js/emergencycontact.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="tab my-3 text-center">
+        <button class="tablinks btn btn-primary"
+            onclick="openCity(event, 'AddEmergencyContactDetails')">Add Emergency
+            Contact Details</button>
+        <button class="tablinks btn btn-primary"
+            onclick="openCity(event, 'UpdateEmergencyContactDetails')">Update
+            Emergency Contact Details</button>
+        <button class="tablinks btn btn-primary"
+            onclick="openCity(event, 'DeleteEmergencyContactDetails'); getEmerdetails()">Delete Emergency Contact
+            Details</button>
+        <button class="tablinks btn btn-primary"
+            onclick="openCity(event, 'GetEmergencyContactDetails'); getEmployeeIds('selectemployeeid3')">Get Emergency
+            Contact Details</button>
+    </div>
+
+    <div id="AddEmergencyContactDetails" class="tabcontent">
+        <h3>Add Emergency Contact Details</h3>
+        <form>
+            <label for="name">Name:</label><br>
+            <input class="form-control" type="text" id="name" name="name"><br>
+
+            <label for="relation">Relation:</label><br>
+            <input class="form-control" type="text" id="relation" name="relation"><br>
+
+            <label for="contactNo">Contact Number:</label><br>
+            <input class="form-control" type="text" id="contactNo" name="contactNo"><br>
+
+            <input class="btn btn-primary" type="submit" value="Submit Emergency Details"
+                onclick="addEmergencyContact()">
+        </form>
+    </div>
+
+    <div id="UpdateEmergencyContactDetails" class="tabcontent">
+        <h3>Update Emergency Contact Details</h3>
+        <form>
+            <label for="name">Name:</label><br>
+            <input class="form-control" type="text" id="uname" name="name"><br>
+
+            <label for="relation">Relation:</label><br>
+            <input class="form-control" type="text" id="urelation" name="relation"><br>
+
+            <label for="contactNo">Contact Number:</label><br>
+            <input class="form-control" type="text" id="ucontactNo" name="contactNo"><br>
+
+            <input class="btn btn-primary" type="submit" value="Update Emergency Details"
+                onclick="updateEmergencyContact()">
+        </form>
+    </div>
+    <div id="DeleteEmergencyContactDetails" class="tabcontent">
+        <h3>Delete Emergency Contact Details</h3>
+        <form>
+            <p id="upname"></p>
+            <p id="uprelation"></p>
+            <p id="upcontactNo"></p>
+            <p id="upempid" style="display: none;"></p>
+            <input class="btn btn-primary" type="submit" value="Delete Details" onclick="deletecontact()">
+        </form>
+    </div>
+    <div id="GetEmergencyContactDetails" class="tabcontent">
+        <h3>Get Emergency Contact Details</h3>
+        <form>
+            <label for="selectemployeeid">Select Employee Id:</label><br>
+            <select class="form-select" id="selectemployeeid3" onchange="getAllEmergencyDetails()">
+                <option value="">Please select</option>
+            </select><br>
+        </form>
+
+    </div>
+    <table class="table text-center" id="GetDepartmentsTable" style="display: none;">
+        <tr>
+            <th>Name</th>
+            <th>Relation</th>
+            <th>ContactNo</th>
+        </tr>
+    </table>
+</body>
+
+</html>
+<style>
+    .tab button.active {
+        background-color: #ccc;
+    }
+
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+</style>

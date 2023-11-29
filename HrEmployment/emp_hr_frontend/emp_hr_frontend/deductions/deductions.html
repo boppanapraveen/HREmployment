@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deduction Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../js/deduction.js"></script>
+</head>
+<body>
+    <style>
+        .tabcontent{
+            display: none;
+        }
+    </style>
+<div class="container my-3">
+    <h1 class="text-center">Deduction Details</h1>
+<div class="tab text-center my-3">
+    <button class="tablinks btn btn-primary" onclick="openCity(event, 'AddDeduction');">Add Deduction</button>
+    <button class="tablinks btn btn-primary" onclick="openCity(event, 'ViewDeductions');">View Deductions</button>
+    <button class="tablinks btn btn-primary" onclick="openCity(event, 'EmployeeDeductions');">View Employee Deductions</button>
+    <button class="tablinks btn btn-primary" onclick="openCity(event, 'UpdateDeduction');">Update Deductions</button>
+</div>
+    <div class="container tabcontent" id="AddDeduction" >
+        <form id="payrollForm">
+            <label for="deductionType">Deduction Type:</label>
+            <input class="form-control" type="text" id="deductionType" name="deductionType" required><br>
+    
+            <label for="rate">Rate:</label>
+            <input class="form-control" type="number" id="rate" name="rate" required><br>
+    
+            <label for="effectiveDate">Effective Date:</label>
+            <input class="form-control" type="text" id="effectiveDate" name="effectiveDate" required><br>
+    
+            <label for="employeeID">Employee ID:</label>
+            <input class="form-control" type="number" id="employeeID" name="employeeID" required><br>
+    
+            <label for="hrEmployeeID">HR Employee ID:</label>
+            <input class="form-control" type="number" id="hrEmployeeID" name="hrEmployeeID" required><br>
+    
+            <label for="month">Month:</label>
+            <input class="form-control" type="text" id="month" name="month" required><br>
+    
+            <input class="btn btn-primary" type="submit" value="Submit Payroll">
+        </form>
+    </div>
+    <div class="container tabcontent" id="ViewDeductions">
+    <label for="hrEmployeeID">HR Employee ID:</label>
+    <input class="form-control" type="number" id="hrEmployeeID1" name="hrEmployeeID" required><br>
+
+        <button class="mb-3 btn btn-primary" id="getPayrollDetails">Get Payroll Details</button>
+        <table class="table" id="payrollDetailsTable" border="1">
+            <thead>
+                <tr>
+                    <th>Payroll ID</th>
+                    <th>Deduction Type</th>
+                    <th>Rate</th>
+                    <th>Effective Date</th>
+                    <th>Employee ID</th>
+                    <th>Month</th>
+                </tr>
+            </thead>
+            <tbody id="payrollDetailsData">
+                <!-- Payroll details data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    <div class="container tabcontent" id="EmployeeDeductions">
+        <label for="employeeID">Employee ID:</label>
+        <input class="form-control" type="number" id="employeeID2" name="employeeID" required><br>
+    
+        <button class="mb-3 btn btn-primary" id="getPayrollDetails2">Get Payroll Details</button>
+    
+        <table class="table" id="payrollDetailsTable" border="1">
+            <thead>
+                <tr>
+                    <th>Payroll ID</th>
+                    <th>Deduction Type</th>
+                    <th>Rate</th>
+                    <th>Effective Date</th>
+                    <th>Employee ID</th>
+                    <th>Month</th>
+                </tr>
+            </thead>
+            <tbody id="payrollDetailsData2">
+                <!-- Payroll details data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    <div class="container tabcontent" id="UpdateDeduction">
+        <form id="payrollForm3">
+            <label for="deductionID">Deduction ID:</label>
+            <input class="form-control" type="number" id="deductionID3" name="deductionID" required><br>
+    
+            <label for="deductionType">Deduction Type:</label>
+            <input class="form-control" type="text" id="deductionType3" name="deductionType" required><br>
+    
+            <label for="rate">Rate:</label>
+            <input class="form-control" type="number" id="rate3" name="rate" required><br>
+    
+            <label for="effectiveDate">Effective Date:</label>
+            <input class="form-control" type="text" id="effectiveDate3" name="effectiveDate" required><br>
+    
+            <label for="employeeID">Employee ID:</label>
+            <input class="form-control" type="number" id="employeeID3" name="employeeID" required><br>
+    
+            <label for="hrEmployeeID">HR Employee ID:</label>
+            <input class="form-control" type="number" id="hrEmployeeID3" name="hrEmployeeID" required><br>
+    
+            <label for="month">Month:</label>
+            <input class="form-control" type="text" id="month3" name="month" required><br>
+    
+            <input class="btn btn-primary" type="submit" value="Submit Payroll">
+        </form>
+    </div>
+</div>
+</body>
+</html>

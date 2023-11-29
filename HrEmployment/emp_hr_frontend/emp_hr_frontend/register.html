@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Information Form</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    label {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h2>User Information Form</h2>
+    
+
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" value="John" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" value="Doe" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth:</label>
+        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" value="1990-05-15" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select class="form-control" id="gender" name="gender" required>
+          <option value="Male" selected>Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" value="john.doe@example.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" class="form-control" id="address" name="address" value="123 Main St, Cityville" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="tel" class="form-control" id="phone" name="phone" value="555-1234" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="dateOfJoining">Date of Joining:</label>
+        <input type="date" class="form-control" id="dateOfJoining" name="dateOfJoining" value="2022-03-01" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="role">Role:</label>
+        <input type="text" class="form-control" id="role" name="role" value="Dev" required>
+      </div>
+
+      <div class="form-group">
+        <label for="deptName">Department Name:</label>
+        <input type="text" class="form-control" id="deptName" name="deptName" value="Microservices" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="jobTitle">Job Title:</label>
+        <input type="text" class="form-control" id="jobTitle" name="jobTitle" value="Java Sr.Dev" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" value="securePassword123" required>
+      </div>
+      
+      <button type="submit" onclick="register()" class="btn btn-primary">Submit</button>
+
+  </div>
+
+  <!-- Bootstrap JS and Popper.js (optional) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+</body>
+</html>
+<script>
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var dateOfBirth = document.getElementById('dateOfBirth').value;
+    var gender = document.getElementById('gender').value;
+    var email = document.getElementById('email').value;
+    var address = document.getElementById('address').value;
+    var phone = document.getElementById('phone').value;
+    var dateOfJoining = document.getElementById('dateOfJoining').value;
+    var role = document.getElementById('role').value;
+    var deptName = document.getElementById('deptName').value;
+    var jobTitle = document.getElementById('jobTitle').value;
+    var password = document.getElementById('password').value;
+function register(){
+    var settings = {
+        "url": "http://localhost:8080/employee/",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "data": JSON.stringify({
+            "firstName": firstName,
+            "lastName": lastName,
+            "dateOfBirth": dateOfBirth,
+            "gender": gender,
+            "email": email,
+            "address": address,
+            "phone": phone,
+            "dateOfJoining": dateOfJoining,
+            "role": role,
+            "deptName": deptName,
+            "jobTitle": jobTitle,
+            "password": password
+        }),
+      };
+  
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+        window.location.replace(
+  "./index.html",
+);
+      });
+}
+</script>
+    

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../js/trainings.js"></script>
+</head>
+<body>
+<style>
+    .tabcontent{
+        display: none;
+    }
+</style>
+<div class="container my-3">
+    <h1 class="text-center">Salary</h1>
+    <div class="tab text-center my-3">
+        <button class="tablinks btn btn-primary" onclick="openCity(event, 'AddTrainings');">Add Training</button>
+        <button class="tablinks btn btn-primary" onclick="openCity(event, 'ViewTrainings');">View Employee Training</button>
+        <button class="tablinks btn btn-primary" onclick="openCity(event, 'DeleteTrainings');">Delete Training</button>
+    </div>
+    <div class="container tabcontent" id="AddTrainings">
+        <form id="trainingForm">
+            <label for="trainingName">Training Name:</label>
+            <input class="form-control" type="text" id="trainingName" name="trainingName" required><br>
+    
+            <label for="trainingDate">Training Date:</label>
+            <input class="form-control" type="text" id="trainingDate" name="trainingDate" required><br>
+    
+            <label for="empID">Employee ID:</label>
+            <input class="form-control" type="number" id="empID" name="empID" required><br>
+    
+            <label for="hrEmpID">HR Employee ID:</label>
+            <input class="form-control" type="number" id="hrEmpID" name="hrEmpID" required><br>
+    
+            <input class="btn btn-primary" type="submit" value="Submit Training Request">
+        </form>
+    </div>
+    <div class="container tabcontent" id="ViewTrainings">
+
+        <label for="empID">Employee ID:</label>
+        <input class="form-control" type="number" id="empID1" name="empID" required><br>
+
+    <button class="btn btn-primary mb-3" id="getTrainingHistory">Get Training History</button>
+
+    <table class="table" id="trainingHistoryTable" border="1">
+        <thead>
+            <tr>
+                <th>Training History ID</th>
+                <th>Training Name</th>
+                <th>Training Date</th>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Completion Date</th>
+                <th>Expiration Date</th>
+            </tr>
+        </thead>
+        <tbody id="trainingHistoryData">
+            <!-- Training history data will be populated here -->
+        </tbody>
+    </table>
+    </div>
+    <div class="container tabcontent" id="DeleteTrainings">
+
+    <form id="deleteTrainingForm2">
+        <label for="trainID">Training ID:</label>
+        <input class="form-control" type="number" id="trainID2" name="trainID" required><br>
+
+        <label for="empID">Employee ID:</label>
+        <input class="form-control" type="number" id="empID2" name="empID" required><br>
+
+        <input class="btn btn-primary" type="submit" value="Delete Training">
+    </form>
+    </div>
+</div>
+</body>
+</html>
